@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+       
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <frontName><![CDATA[admin]]></frontName>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <events>
+            <!--log-->
+            <controller_action_predispatch>
+                <observers><log><type>disabled</type></log></observers>
+            </controller_action_predispatch>
+            <controller_action_postdispatch>
+                <observers><log><type>disabled</type></log></observers>
+            </controller_action_postdispatch>
+            <customer_login>
+                <observers><log><type>disabled</type></log></observers>
+            </customer_login>
+            <customer_logout>
+                <observers><log><type>disabled</type></log></observers>
+            </customer_logout>
+            <sales_quote_save_after>
+                <observers><log><type>disabled</type></log></observers>
+            </sales_quote_save_after>
+            <checkout_quote_destroy>
+                <observers><log><type>disabled</type></log></observers>
+            </checkout_quote_destroy>
+            <!--log-->
+
+            <!--product view report-->
+            <catalog_controller_product_view>
+                <observers> <reports><type>disabled</type></reports></observers>
+            </catalog_controller_product_view>
+            <!--product view report-->
+            <!--downloadable-->
+            <catalog_product_prepare_save>
+                <observers> <downloadable_observer><type>disabled</type></downloadable_observer></observers>
+            </catalog_product_prepare_save>
+            <sales_order_item_save_commit_after>
+                <observers> <downloadable_observer><type>disabled</type></downloadable_observer></observers>
+            </sales_order_item_save_commit_after>
+            <sales_order_save_commit_after>
+                <observers> <downloadable_observer><type>disabled</type></downloadable_observer></observers>
+            </sales_order_save_commit_after>
+            <!--downloadable-->
+            <!--rss-->
+            <sales_order_save_after>
+                <observers> <notifystock><type>disabled</type></notifystock></observers>
+            </sales_order_save_after>
+            <sales_order_save_after>
+                <observers> <ordernew><type>disabled</type></ordernew></observers>
+            </sales_order_save_after> 
+            <!--rss-->
+
+        </events>
+    </frontend>
+</config>
